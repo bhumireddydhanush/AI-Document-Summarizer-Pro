@@ -1,3 +1,10 @@
+import google
+import sys
+
+print("Python:", sys.version)
+print("Google package:", google.__file__)
+
+
 import streamlit as st
 import streamlit.components.v1 as components
 import time
