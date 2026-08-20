@@ -54,3 +54,4 @@ tzdata==2026.3
 urllib3==2.6.3
 yake==0.4.8
 python-dotenv==1.0.1
+google-genai==1.33.0
