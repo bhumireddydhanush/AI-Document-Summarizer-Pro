@@ -201,58 +201,58 @@ if st.button("🚀 Generate Summary"):
 
         import streamlit.components.v1 as components
 
-col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-with col1:
+    with col1:
 
-    components.html(
-        f"""
-        <button
-            onclick="
-                navigator.clipboard.writeText(`{summary}`);
-                this.innerHTML='✅ Copied!';
-                setTimeout(() => {{
-                    this.innerHTML='📋 Copy Summary';
-                }}, 2000);
-            "
-            style="
-                width:100%;
-                height:50px;
-                border:none;
-                border-radius:10px;
-                background:#2563EB;
-                color:white;
-                font-size:16px;
-                font-weight:bold;
-                cursor:pointer;
-            "
-        >
-            📋 Copy Summary
-        </button>
-        """,
-        height=60,
-    )
-
-with col2:
-
-        st.download_button(
-            label="📥 Download Summary",
-            data=summary,
-            file_name="summary.txt",
-            mime="text/plain",
-            use_container_width=True
+        components.html(
+            f"""
+            <button
+                onclick="
+                    navigator.clipboard.writeText(`{summary}`);
+                    this.innerHTML='✅ Copied!';
+                    setTimeout(() => {{
+                        this.innerHTML='📋 Copy Summary';
+                    }}, 2000);
+                "
+                style="
+                    width:100%;
+                    height:50px;
+                    border:none;
+                    border-radius:10px;
+                    background:#2563EB;
+                    color:white;
+                    font-size:16px;
+                    font-weight:bold;
+                    cursor:pointer;
+                "
+            >
+                📋 Copy Summary
+            </button>
+            """,
+            height=60,
         )
 
-        st.divider()
+    with col2:
 
-        st.subheader("🔑 Top Keywords")
+            st.download_button(
+                label="📥 Download Summary",
+                data=summary,
+                file_name="summary.txt",
+                mime="text/plain",
+                use_container_width=True
+            )
 
-        keywords = extract_keywords(text)
+            st.divider()
 
-        cols = st.columns(len(keywords))
+            st.subheader("🔑 Top Keywords")
 
-        for i, keyword in enumerate(keywords):
-            cols[i].success(keyword)
+            keywords = extract_keywords(text)
 
-        else:
-            st.warning("⚠️ Please upload a file or paste some text.")
+            cols = st.columns(len(keywords))
+
+            for i, keyword in enumerate(keywords):
+                cols[i].success(keyword)
+
+            else:
+                st.warning("⚠️ Please upload a file or paste some text.")
